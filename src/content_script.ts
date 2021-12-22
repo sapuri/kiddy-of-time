@@ -58,7 +58,6 @@ const Main = (): void => {
   if (totalRemainTime <= 0) return;
   const totalRemain = document.createElement("span");
   totalRemain.textContent = `（残り: ${totalRemainTime.toFixed(2)}）`;
-  totalRemain.style.color = "red";
   totalRemain.className = classes.red;
   allWorkTime.append(totalRemain);
 };
