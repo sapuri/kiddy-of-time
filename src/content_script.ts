@@ -5,15 +5,15 @@ const Main = (): void => {
 
   const baseWorkTime = 8;
 
-  const targetWorkTime = document.querySelector(
+  const targetWorkTimeTd = document.querySelector(
     "td.htBlock-normalTable_splitter"
   );
-  const allWorkTime = document.querySelector("td.all_work_time");
+  const allWorkTimeTd = document.querySelector("td.all_work_time");
+  const targetWorkTime = targetWorkTimeTd?.textContent;
+  const allWorkTime = allWorkTimeTd?.textContent;
   if (!targetWorkTime || !allWorkTime) return;
 
-  let totalRemainTime =
-    parseFloat(targetWorkTime.textContent || "") -
-    parseFloat(allWorkTime.textContent || "");
+  let totalRemainTime = parseFloat(targetWorkTime) - parseFloat(allWorkTime);
   if (totalRemainTime <= 0) return;
 
   const tbody = document.querySelector(
@@ -56,10 +56,10 @@ const Main = (): void => {
 
   totalRemainTime -= holidayCnt * baseWorkTime;
   if (totalRemainTime <= 0) return;
-  const totalRemain = document.createElement("span");
-  totalRemain.textContent = `（残り: ${totalRemainTime.toFixed(2)}）`;
-  totalRemain.className = classes.red;
-  allWorkTime.append(totalRemain);
+  const totalRemainSpan = document.createElement("span");
+  totalRemainSpan.textContent = `（残り: ${totalRemainTime.toFixed(2)}）`;
+  totalRemainSpan.className = classes.red;
+  allWorkTimeTd.append(totalRemainSpan);
 };
 
 const trimmedString = (s: string | null | undefined): string => {
