@@ -21,6 +21,7 @@ const Main = (): void => {
   );
   if (!tbody) return;
 
+  // 日数カウント
   let remainingWorkdayCnt = 0;
   let holidayCnt = 0;
   for (let tr of tbody.children) {
@@ -37,8 +38,16 @@ const Main = (): void => {
     else if (isHoliday(scheduleName)) holidayCnt++;
   }
 
-  remainingWorkdayCnt -= holidayCnt;
   if (remainingWorkdayCnt === 0) return;
+
+  totalRemainTime -= holidayCnt * baseWorkTime;
+  if (totalRemainTime <= 0) return;
+
+  const totalRemainSpan = document.createElement("span");
+  totalRemainSpan.textContent = `（残り: ${totalRemainTime.toFixed(2)}）`;
+  totalRemainSpan.className = classes.red;
+  allWorkTimeTd.append(totalRemainSpan);
+
   const remainTime = totalRemainTime / remainingWorkdayCnt;
   for (let tr of tbody.children) {
     const scheduleTd = tr.querySelector(
@@ -53,13 +62,6 @@ const Main = (): void => {
       workTimeTd.firstElementChild.className = classes.red;
     }
   }
-
-  totalRemainTime -= holidayCnt * baseWorkTime;
-  if (totalRemainTime <= 0) return;
-  const totalRemainSpan = document.createElement("span");
-  totalRemainSpan.textContent = `（残り: ${totalRemainTime.toFixed(2)}）`;
-  totalRemainSpan.className = classes.red;
-  allWorkTimeTd.append(totalRemainSpan);
 };
 
 const trimmedString = (s: string | null | undefined): string => {
