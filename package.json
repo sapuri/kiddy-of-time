@@ -1,6 +1,6 @@
 {
   "name": "kiddy-of-time",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Chrome Extension for KING OF TIME",
   "main": "index.js",
   "scripts": {
