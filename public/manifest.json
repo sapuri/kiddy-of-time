@@ -3,7 +3,7 @@
 
   "name": "Kiddy Of Time",
   "description": "KING OF TIME をちょっと便利にします。",
-  "version": "1.0.5",
+  "version": "1.0.6",
 
   "action": {
     "default_icon": "images/icon_16.png"
