@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="images/eyecatch.png" alt="eyecatch" width="600">
+</p>
+
 # kiddy-of-time
 
 Chrome Extension for KING OF TIME.
