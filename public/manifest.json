@@ -17,7 +17,7 @@
 
   "content_scripts": [
       {
-          "matches": ["https://s3.kingtime.jp/admin/*"],
+          "matches": ["https://s3.ta.kingoftime.jp/admin/*"],
           "js": ["js/content_script.js"],
           "css": ["style.css"]
       }
@@ -26,6 +26,6 @@
   "permissions": [],
 
   "host_permissions": [
-    "https://s3.kingtime.jp/admin/*"
+    "https://s3.ta.kingoftime.jp/admin/*"
   ]
 }
